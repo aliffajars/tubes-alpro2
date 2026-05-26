@@ -30,11 +30,15 @@ func tambahResep() {
 	fmt.Print("Masukkan Nama Makanan : ")
 	fmt.Scan(&namaBaru)
 
-	fmt.Print("Masukan Resep : ")
+	fmt.Println("Masukan Resep (ketik . untuk selesai) : ")
 	resepBaru = ""
+	langkah := 1
+	fmt.Print("Langkah ", langkah, " : ")
 	fmt.Scan(&baris)
-	for baris != "."{
+	for baris != "." {
 		resepBaru = resepBaru + baris + "\n"
+		langkah++
+		fmt.Print("Langkah ", langkah, " : ")
 		fmt.Scan(&baris)
 	}
 
@@ -86,7 +90,7 @@ func detailResep() {
 	fmt.Scan(&nomor)
 
 	if nomor < 1 || nomor > n {
-		fmt.Println("TIdak Valid")
+		fmt.Println("Tidak Valid")
 		return
 	}
 
