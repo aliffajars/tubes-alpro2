@@ -20,15 +20,23 @@ func dashboard() {
 	fmt.Println("2. Lihat Resep Makanan")
 	fmt.Println("3. Hapus Resep")
 	fmt.Println("4. Keluar")
+
+	fmt.Println("")
 }
 
 func tambahResep() {
-	var namaBaru, resepBaru string
+	var namaBaru, resepBaru, baris string
 
-	fmt.Println("Masukkan Nama Makanan")
+	fmt.Print("Masukkan Nama Makanan : ")
 	fmt.Scan(&namaBaru)
-	fmt.Println("Masukan Resep")
-	fmt.Scan(&resepBaru)
+
+	fmt.Print("Masukan Resep : ")
+	resepBaru = ""
+	fmt.Scan(&baris)
+	for baris != "."{
+		resepBaru = resepBaru + baris + "\n"
+		fmt.Scan(&baris)
+	}
 
 	posisi := sorting(namaBaru)
 
@@ -74,6 +82,7 @@ func detailResep() {
 	}
 
 	tampilkanResep()
+	fmt.Print("Masukan Nomor Makanan Untuk Melihat Resep : ")
 	fmt.Scan(&nomor)
 
 	if nomor < 1 || nomor > n {
@@ -82,8 +91,8 @@ func detailResep() {
 	}
 
 	idx := nomor - 1
-	fmt.Println(daftarResep[idx].namaMakanan)
-	fmt.Println(daftarResep[idx].resep)
+	fmt.Println("Nama Makanan :", daftarResep[idx].namaMakanan)
+	fmt.Println("Resep        :", daftarResep[idx].resep)
 }
 
 func hapusResep() {
@@ -112,16 +121,17 @@ func hapusResep() {
 
 func main() {
 	var pilihan int
-
+	var dummy string
 	for {
 		dashboard()
+		fmt.Print("Masukan Inputan : ")
 		fmt.Scan(&pilihan)
-
+		fmt.Println("")
+		fmt.Scanln(&dummy)
 		switch {
 		case pilihan == 1:
 			tambahResep()
 		case pilihan == 2:
-			tampilkanResep()
 			detailResep()
 		case pilihan == 3:
 			hapusResep()
