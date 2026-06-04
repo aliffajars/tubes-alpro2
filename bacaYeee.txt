@@ -1,0 +1,9 @@
+1. masukan untuk tambah resep gak bisa pakai (spasi), jadinya pakai _ misal : ayam_goreng, kalau "ayam goreng" si goreng nya jadi resep
+
+2. coba tambahin si bahan jar di struct nya, jadi nanti inputan ada 3 : nama makanan, resep, bahan
+
+3. coba tambahin for loop biar pas input resep itu ada kayak
+- resep 
+langkah 1 : (inputan)
+langkah 2 : (inputan)
+langkah 3 : (inputan)
